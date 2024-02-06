@@ -27,7 +27,7 @@
         <section id="intro-content">
             <div>Intro content to the quiz</div>
             <form method="GET" action="response.html">
-                <label for="userName"></label>
+                <label for="userName">Username</label>
                 <input type="text" id="userName" name="userName" placeholder="Enter your username here">
                 <input type="submit">
             </form>
@@ -41,9 +41,11 @@
                 The current question for the quiz
             </div>
             <form method="GET" action="response.html">
-                <label for="userAnswer"></label>
-                <input id="userAnswer" type="text" name="userAnswer"
-                    placeholder="Enter your answer to the question here">
+                <label for="userAnswer">Answer</label>
+                <br>
+                <textarea id="userAnswer" name="userAnswer" placeholder="Enter your answer to the question here"
+                    rows="10" cols="40">
+                </textarea>
                 <input type="submit">
             </form>
         </section>

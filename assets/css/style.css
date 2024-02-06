@@ -1,3 +1,6 @@
+/* Import google font files */
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,600;1,100;1,200;1,300;1,400;1,600&display=swap');
+
 /* Asterisk wildcard selector to override default stules added by the browser */
 * {
     padding: 0;
@@ -21,7 +24,7 @@ header {
 /* Main content styles */
 main {
     background-color: white;
-    /* Push footer element down to bottom of the screen */
+    /* Push main element take up any surplus space to push footer down */
     flex: 1 0 auto;
 }
 

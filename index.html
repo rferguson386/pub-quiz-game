@@ -26,13 +26,19 @@
     <main>
         <section id="intro-content">
             <div>Intro content to the quiz</div>
+            <form>
+                <input type="text">
+                <input type="submit">
+            </form>
         </section>
         <section id="quiz-progress">
             <!--This div houses the number of the current question in the quiz-->
             <div id="question-number">Question number for the current question</div>
         </section>
         <section id="quiz-questions">
-            <div id="current-question"></div>
+            <div id="current-question">
+                The current question for the quiz
+            </div>
             <form method="GET" action="response.html">
                 <label for="userAnswer"></label>
                 <input id="userAnswer" type="text" name="userAnswer">
@@ -40,8 +46,22 @@
             </form>
         </section>
         <section id="quiz-feedback">
-            <div id="positive-feedback"></div>
-            <div id="negative-feedback"></div>
+            <div id="positive-feedback">
+                <p class="feedback">Positive feedback</p>
+                <button class="next-question">Next question</button>
+            </div>
+            <div id="negative-feedback">
+                <p class="feedback">Negative feedback</p>
+                <button class="next-question">Next question</button>
+            </div>
+        </section>
+        <section id="final-score">
+            <div id="score">Well done, your final score was ??</div>
+            <button id="play-again">Play again</button>
+        </section>
+        <section id="quiz-running-score">
+            <div id="correct-score-tally">? correct answers</div>
+            <div id="incorrect-score-tally">? incorrect answers</div>
         </section>
     </main>
     <!--Footer content-->

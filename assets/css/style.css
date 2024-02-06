@@ -21,6 +21,10 @@ header {
     background-color: red;
 }
 
+h1.logo {
+    font-family: 'Public Sans', sans-serif;
+}
+
 /* Main content styles */
 main {
     background-color: white;

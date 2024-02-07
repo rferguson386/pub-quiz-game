@@ -5,6 +5,7 @@ let startButton = document.getElementById('username-form');
 
 startButton.addEventListener('submit', startGame);
 
+/* The main function to start the game */
 function startGame(event) {
     event.preventDefault();
     let currentQuestionNumber = 0;
@@ -17,6 +18,7 @@ function startGame(event) {
     userNameInput(userName);
 }
 
+/* Username validation testing- we don't want the username to include any numeric characters or be null or undefined */
 function userNameInput(myString) {
     let userNameTest = hasNumber(myString);
     if (userNameTest === false) {
@@ -29,6 +31,7 @@ function userNameInput(myString) {
     }
 }
 
+/* This was taken from stack overflow answer about how to check if strings contain numeric values */
 function hasNumber(myString) {
     return /\d/.test(myString);
 }

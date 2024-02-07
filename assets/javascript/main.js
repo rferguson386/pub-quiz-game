@@ -37,7 +37,9 @@ function hasNumber(myString) {
 }
 
 function displayQuestion() {
-
+    hideSection('intro-content');
+    displaySection('quiz-progress');
+    displaySection('quiz-questions');
 }
 
 function hideSection(section) {

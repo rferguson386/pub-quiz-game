@@ -26,11 +26,11 @@
     <main>
         <section id="intro-content">
             <div id="intro-text">Intro content to the quiz</div>
-            <div id="username-form">
-                <form method="GET" action="response.html">
+            <div id="username-form-div">
+                <form method="GET" action="response.html" id="username-form">
                     <label for="userName">Username</label>
                     <input type="text" id="userName" name="userName" placeholder="Enter your username here">
-                    <input type="submit">
+                    <input type="submit" value="Start" id="start-button">
                 </form>
             </div>
         </section>
@@ -42,8 +42,8 @@
             <div id="current-question">
                 The current question for the quiz
             </div>
-            <div id="current-question-form">
-                <form method="GET" action="response.html">
+            <div id="current-question-form-div">
+                <form method="GET" action="response.html" id="current-question-form">
                     <label for="userAnswer">Answer</label>
                     <br>
                     <textarea id="userAnswer" name="userAnswer" placeholder="Enter your answer to the question here"

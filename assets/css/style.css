@@ -30,11 +30,21 @@ main {
     background-color: white;
     /* Push main element take up any surplus space to push footer down */
     flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
 }
 
 section {
     margin-top: 3%;
     width: 80%;
+    border: 5px solid red;
+    display: flex;
+    justify-content: center;
+}
+
+section>div {
+    width: 80%;
+    border: 5px solid green;
 }
 
 #quiz-progress,

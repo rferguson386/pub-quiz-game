@@ -25,12 +25,14 @@
     <!--Main conetnt-->
     <main>
         <section id="intro-content">
-            <div>Intro content to the quiz</div>
-            <form method="GET" action="response.html">
-                <label for="userName">Username</label>
-                <input type="text" id="userName" name="userName" placeholder="Enter your username here">
-                <input type="submit">
-            </form>
+            <div id="intro-text">Intro content to the quiz</div>
+            <div id="username-form">
+                <form method="GET" action="response.html">
+                    <label for="userName">Username</label>
+                    <input type="text" id="userName" name="userName" placeholder="Enter your username here">
+                    <input type="submit">
+                </form>
+            </div>
         </section>
         <section id="quiz-progress">
             <!--This div houses the number of the current question in the quiz-->
@@ -40,14 +42,16 @@
             <div id="current-question">
                 The current question for the quiz
             </div>
-            <form method="GET" action="response.html">
-                <label for="userAnswer">Answer</label>
-                <br>
-                <textarea id="userAnswer" name="userAnswer" placeholder="Enter your answer to the question here"
-                    rows="10" cols="40">
-                </textarea>
-                <input type="submit">
-            </form>
+            <div id="current-question-form">
+                <form method="GET" action="response.html">
+                    <label for="userAnswer">Answer</label>
+                    <br>
+                    <textarea id="userAnswer" name="userAnswer" placeholder="Enter your answer to the question here"
+                        rows="10" cols="40">
+                    </textarea>
+                    <input type="submit">
+                </form>
+            </div>
         </section>
         <section id="quiz-feedback">
             <div id="positive-feedback">

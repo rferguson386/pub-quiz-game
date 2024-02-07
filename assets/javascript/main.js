@@ -1,3 +1,9 @@
+let userName = 'empty string';
+
+let startButton = document.getElementById('username-form');
+
+startButton.addEventListener('submit', startGame);
+
 function startGame(event) {
     event.preventDefault();
     let currentQuestionNumber = 0;
@@ -5,14 +11,7 @@ function startGame(event) {
     let userCurrentAnswer = 'TO BE DEFINED';
     let correctScoreCount = 0;
     let incorrectScoreCount = 0;
-    let userName = document.getElementById('username-form').elements['userName'].value;
-    return userName;
-}
-
-let startButton = document.getElementById("start-button");
-
-startButton.addEventListener('click', startGame);
-
-function validateUsernameInput() {
-    console.log(startGame)
+    console.log(userName);
+    userName = document.getElementById('username-form').elements['userName'].value;
+    console.log(userName);
 }

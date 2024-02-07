@@ -35,3 +35,7 @@ function userNameInput(myString) {
 function hasNumber(myString) {
     return /\d/.test(myString);
 }
+
+function displayQuestion() {
+
+}

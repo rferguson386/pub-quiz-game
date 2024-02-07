@@ -24,7 +24,7 @@ function userNameInput(myString) {
     if (userNameTest === false) {
         if (userName !== null || undefined) {
             console.log('the game will start now');
-            /* CALL DISPLAY QUESTION FUNCTION HERE WHEN IT IS BUILT */
+            displayQuestion();
         }
     } else {
         console.log('please enter a username without any numeric characters');
@@ -37,5 +37,10 @@ function hasNumber(myString) {
 }
 
 function displayQuestion() {
+    document.getElementById('intro-content').style.display = 'none';
+    document.getElementById('quiz-progress').style.display = 'flex';
+}
 
+function hideSection(section) {
+    document.getElementById(section).style.display = 'none';
 }

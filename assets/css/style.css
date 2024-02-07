@@ -32,6 +32,19 @@ main {
     flex: 1 0 auto;
 }
 
+section {
+    margin-top: 3%;
+    width: 80%;
+}
+
+#quiz-progress,
+#quiz-questions,
+#quiz-feedback,
+#final-score,
+#quiz-running-score {
+    display: none;
+}
+
 /* Footer styles */
 footer {
     background-color: blue;

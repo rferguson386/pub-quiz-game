@@ -32,7 +32,7 @@ main {
     flex: 1 0 auto;
     display: flex;
     justify-content: center;
-    flex-direction: center;
+    flex-direction: column;
 }
 
 section {
@@ -53,15 +53,11 @@ section>div {
     width: 50%;
 }
 
-#quiz-progress,
-#quiz-questions,
-#quiz-feedback,
-#final-score,
-#quiz-running-score {
-    display: none;
-}
-
 /* Footer styles */
 footer {
     background-color: blue;
+}
+
+.hide {
+    display: none;
 }

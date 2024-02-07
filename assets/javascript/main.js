@@ -1,33 +1,45 @@
-/* userName is declared as a global variable so it can be reused by multiple functions */
+/* declaring various variables here so they can be reused by multiple functions */
 let userName = 'empty string';
+let currentQuestionNumber = 0;
+let questions = ['ARRAY ENTRIES NEEDED HERE'];
 
-let startButton = document.getElementById('username-form');
+/* declaring variables for section ids so we can add or remove the hide class to them when functions run */
+const introContent = document.getElementById('intro-content');
+const quizProgress = document.getElementById('quiz-progress');
+const quizQuestions = document.getElementById('quiz-questions');
+const quizFeedback = document.getElementById('quiz-feedback');
+const finalScore = document.getElementById('final-score');
+const runningScore = document.getElementById('quiz-running-score');
 
-startButton.addEventListener('submit', startGame);
+/* declaring variable for the username form */
+const userNameForm = document.getElementById('username-form');
+
+userNameForm.addEventListener('submit', startGame);
 
 /* The main function to start the game */
 function startGame(event) {
     event.preventDefault();
-    let currentQuestionNumber = 0;
-    let questions = ['ARRAY ENTRIES NEEDED HERE'];
     let userCurrentAnswer = 'TO BE DEFINED';
     let correctScoreCount = 0;
     let incorrectScoreCount = 0;
-    userName = document.getElementById('username-form').elements['userName'].value;
+    let userInputValue = userNameForm.elements['userName'].value;
     console.log(userName);
-    userNameInput(userName);
+    if (userNameInput(userInputValue)) {
+        userName = userInputValue;
+        displayQuestionSection()
+    } else {
+        alert('please enter a username without any numeric characters');
+    }
 }
 
 /* Username validation testing- we don't want the username to include any numeric characters or be null or undefined */
 function userNameInput(myString) {
     let userNameTest = hasNumber(myString);
-    if (userNameTest === false) {
-        if (userName !== null || undefined) {
-            console.log('the game will start now');
-            displayQuestion();
-        }
+    if (!userNameTest && userName !== null || undefined) {
+        console.log('the game will start now');
+        return true;
     } else {
-        console.log('please enter a username without any numeric characters');
+        return false;
     }
 }
 
@@ -36,16 +48,8 @@ function hasNumber(myString) {
     return /\d/.test(myString);
 }
 
-function displayQuestion() {
-    hideSection('intro-content');
-    displaySection('quiz-progress');
-    displaySection('quiz-questions');
-}
-
-function hideSection(section) {
-    document.getElementById(section).style.display = 'none';
-}
-
-function displaySection(section) {
-    document.getElementById(section).style.display = 'flex';
+function displayQuestionSection() {
+    introContent.classList.add('hide');
+    quizProgress.classList.remove('hide');
+    quizQuestions.classList.remove('hide');
 }

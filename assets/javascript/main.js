@@ -37,10 +37,13 @@ function hasNumber(myString) {
 }
 
 function displayQuestion() {
-    document.getElementById('intro-content').style.display = 'none';
-    document.getElementById('quiz-progress').style.display = 'flex';
+
 }
 
 function hideSection(section) {
     document.getElementById(section).style.display = 'none';
+}
+
+function displaySection(section) {
+    document.getElementById(section).style.display = 'flex';
 }

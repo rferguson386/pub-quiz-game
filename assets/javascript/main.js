@@ -1,6 +1,8 @@
 /* declaring various variables here so they can be reused by multiple functions */
 let userName;
 let currentQuestionCounter = 0;
+let userAnswers = [];
+/* Questions were taken from this url https://www.radiotimes.com/quizzes/pub-quiz-general-knowledge/ */
 let questions = [{
         Question: 'Who wrote the book Chitty-Chitty-Bang-Bang: The Magical Car?',
         Answer: 'Ian Fleming'
@@ -55,6 +57,7 @@ const runningScore = document.getElementById('quiz-running-score');
 /* declaring variable for the username form, we need to add an event listner on the form element ID,
 rather than the submit input element to prevent the default event of the form GET method */
 const userNameForm = document.getElementById('username-form');
+const userAnswerForm = document.getElementById('current-question-form')
 
 userNameForm.addEventListener('submit', startGame);
 
@@ -111,4 +114,8 @@ function questionText(questionNumber) {
     let questionIndex = questionNumber - 1;
     currentQuestion.innerHTML = `
     <p>${questions[questionIndex].Question}</p>`
+}
+
+function storeAnswer() {
+
 }

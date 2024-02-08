@@ -1,7 +1,8 @@
 /* declaring various variables here so they can be reused by multiple functions */
-let userName = 'empty string';
+let userName;
 let currentQuestionNumber = 0;
 let questions = ['ARRAY ENTRIES NEEDED HERE'];
+
 
 /* declaring variables for section ids so we can add or remove the hide class to them when functions run */
 const introContent = document.getElementById('intro-content');
@@ -23,25 +24,22 @@ function startGame(event) {
     let correctScoreCount = 0;
     let incorrectScoreCount = 0;
     let userInputValue = userNameForm.elements['userName'].value;
-    console.log(userName);
-    if (userNameInput(userInputValue)) {
+    let nullTest = userInputValue === null;
+    let undefinedTest = userInputValue === undefined;
+    let emptyStringTest = userInputValue === '';
+    console.log('nullTest = ', nullTest);
+    console.log('undefinedTest = ', undefinedTest);
+    console.log('emptyStringTest = ', emptyStringTest);
+    if (!hasNumber(userInputValue) && userInputValue !== "") {
         userName = userInputValue;
+        console.log('the game will start now');
         displayQuestionSection()
     } else {
-        alert('please enter a username without any numeric characters');
+        alert("I think you can choose a better name than that! Please enter a username without any numeric characters");
     }
 }
 
 /* Username validation testing- we don't want the username to include any numeric characters or be null or undefined */
-function userNameInput(myString) {
-    let userNameTest = hasNumber(myString);
-    if (!userNameTest && userName !== null || undefined) {
-        console.log('the game will start now');
-        return true;
-    } else {
-        return false;
-    }
-}
 
 /* This was taken from stack overflow answer about how to check if strings contain numeric values */
 function hasNumber(myString) {

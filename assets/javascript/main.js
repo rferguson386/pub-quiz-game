@@ -54,12 +54,13 @@ const quizFeedback = document.getElementById('quiz-feedback');
 const finalScore = document.getElementById('final-score');
 const runningScore = document.getElementById('quiz-running-score');
 
-/* declaring variable for the username form, we need to add an event listner on the form element ID,
+/* declaring variable for the username form and question answer form, we need to add an event listner on the form element ID,
 rather than the submit input element to prevent the default event of the form GET method */
 const userNameForm = document.getElementById('username-form');
 const userAnswerForm = document.getElementById('current-question-form')
 
 userNameForm.addEventListener('submit', startGame);
+userAnswerForm.addEventListener('submit', storeAnswer);
 
 /* The main function to start the game */
 function startGame(event) {
@@ -116,6 +117,9 @@ function questionText(questionNumber) {
     <p>${questions[questionIndex].Question}</p>`
 }
 
-function storeAnswer() {
-
+function storeAnswer(event) {
+    event.preventDefault();
+    let userAnswerValue = userAnswerForm.elements['userAnswer'].value;
+    userAnswers.push(userAnswerValue);
+    console.log(userAnswers);
 }

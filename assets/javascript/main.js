@@ -1,6 +1,6 @@
 /* declaring various variables here so they can be reused by multiple functions */
 let userName;
-let currentQuestionNumber = 0;
+let currentQuestionCounter = 0;
 let questions = ['ARRAY ENTRIES NEEDED HERE'];
 
 
@@ -12,7 +12,8 @@ const quizFeedback = document.getElementById('quiz-feedback');
 const finalScore = document.getElementById('final-score');
 const runningScore = document.getElementById('quiz-running-score');
 
-/* declaring variable for the username form */
+/* declaring variable for the username form, we need to add an event listner on the form element ID,
+rather than the submit input element to prevent the default event of the form GET method */
 const userNameForm = document.getElementById('username-form');
 
 userNameForm.addEventListener('submit', startGame);
@@ -43,4 +44,12 @@ function displayQuestionSection() {
     introContent.classList.add('hide');
     quizProgress.classList.remove('hide');
     quizQuestions.classList.remove('hide');
+    setQuestionNumberDisplay();
+}
+
+function setQuestionNumberDisplay() {
+    currentQuestionCounter++;
+    /* Set the value of the message telling the user what question they are on */
+    let currentQuestionNumberDisplay = document.getElementById('question-number')
+    currentQuestionNumberDisplay.innerHTML = `<p>Question number ${currentQuestionCounter}</p>`;
 }

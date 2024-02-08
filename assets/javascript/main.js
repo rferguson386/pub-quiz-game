@@ -1,7 +1,46 @@
 /* declaring various variables here so they can be reused by multiple functions */
 let userName;
 let currentQuestionCounter = 0;
-let questions = ['ARRAY ENTRIES NEEDED HERE'];
+let questions = [{
+    Question1: 'Who wrote the book Chitty-Chitty-Bang-Bang: The Magical Car?',
+    Answer1: 'Ian Fleming'
+}];
+[{
+    Question2: 'In which part of your body would you find the cruciate ligament?',
+    Answer2: 'Knee'
+}];
+[{
+    Question3: 'What is the name of the main antagonist in the Shakespeare play Othello?',
+    Answer3: 'Iago'
+}];
+[{
+    Question4: 'When was the movie the Titanic released?',
+    Answer4: 'Tin'
+}];
+[{
+    Question5: 'What element is denoted by the chemical symbol Sn in the periodic table?',
+    Answer5: '1997'
+}];
+[{
+    Question6: "Which popular video game franchise has released games with the subtitles World At War and Black Ops?",
+    Answer6: 'Call of Duty'
+}];
+[{
+    Question7: 'What was the most popular girls name in the UK in 2021?',
+    Answer7: 'Olivia'
+}];
+[{
+    Question8: 'What is the name of the 1976 film about the Watergate scandal, starring Robert Redford and Dustin Hoffman?',
+    Answer8: "All the President's Men"
+}];
+[{
+    Question9: 'Which comedian was the second permanent host of Never Mind the Buzzcocks after Mark Lamarr?',
+    Answer9: 'Simon Amstell'
+}];
+[{
+    Question10: 'What is the capital of Finland?',
+    Answer10: 'Helsinki'
+}];
 
 
 /* declaring variables for section ids so we can add or remove the hide class to them when functions run */
@@ -53,10 +92,17 @@ function setQuestionNumberDisplay() {
     let currentQuestionNumberDisplay = document.getElementById('question-number')
     currentQuestionNumberDisplay.innerHTML = `<p>Question number ${currentQuestionCounter}</p>`;
     greetings();
+    questionText(currentQuestionCounter);
 }
 
 function greetings() {
     let currentGreeting = document.getElementById('first-question-greeting');
     currentGreeting.innerHTML = `
     <p>Hello ${userName}, here is the first question:</p>`
+}
+
+function questionText(questionNumber) {
+    let currentQuestion = document.getElementById('current-question');
+    currentQuestion.innerHTML = `
+    <p>The question text here needs to be replaced by the question from the array object</p>`
 }

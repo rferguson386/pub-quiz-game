@@ -52,4 +52,11 @@ function setQuestionNumberDisplay() {
     /* Set the value of the message telling the user what question they are on */
     let currentQuestionNumberDisplay = document.getElementById('question-number')
     currentQuestionNumberDisplay.innerHTML = `<p>Question number ${currentQuestionCounter}</p>`;
+    greetings();
+}
+
+function greetings() {
+    let currentGreeting = document.getElementById('first-question-greeting');
+    currentGreeting.innerHTML = `
+    <p>Hello ${userName}, here is the first question:</p>`
 }

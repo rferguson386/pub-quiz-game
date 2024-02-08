@@ -24,13 +24,8 @@ function startGame(event) {
     let correctScoreCount = 0;
     let incorrectScoreCount = 0;
     let userInputValue = userNameForm.elements['userName'].value;
-    let nullTest = userInputValue === null;
-    let undefinedTest = userInputValue === undefined;
-    let emptyStringTest = userInputValue === '';
-    console.log('nullTest = ', nullTest);
-    console.log('undefinedTest = ', undefinedTest);
-    console.log('emptyStringTest = ', emptyStringTest);
-    if (!hasNumber(userInputValue) && userInputValue !== "") {
+    /* check that the entry does not contain any numbers and also is not an undefined, null, 0, NaN or empty string value */
+    if (!hasNumber(userInputValue) && userInputValue) {
         userName = userInputValue;
         console.log('the game will start now');
         displayQuestionSection()
@@ -38,8 +33,6 @@ function startGame(event) {
         alert("I think you can choose a better name than that! Please enter a username without any numeric characters");
     }
 }
-
-/* Username validation testing- we don't want the username to include any numeric characters or be null or undefined */
 
 /* This was taken from stack overflow answer about how to check if strings contain numeric values */
 function hasNumber(myString) {

@@ -1,7 +1,9 @@
 /* declaring various variables here so they can be reused by multiple functions */
 let userName;
 let currentQuestionCounter = 0;
+let userAnswer;
 let userAnswers = [];
+
 /* Questions were taken from this url https://www.radiotimes.com/quizzes/pub-quiz-general-knowledge/ */
 let questions = [{
         Question: 'Who wrote the book Chitty-Chitty-Bang-Bang: The Magical Car?',
@@ -60,7 +62,7 @@ const userNameForm = document.getElementById('username-form');
 const userAnswerForm = document.getElementById('current-question-form')
 
 userNameForm.addEventListener('submit', startGame);
-userAnswerForm.addEventListener('submit', storeAnswer);
+userAnswerForm.addEventListener('submit', checkAnswer);
 
 /* The main function to start the game */
 function startGame(event) {
@@ -96,9 +98,12 @@ function setQuestionNumberDisplay() {
     /* Set the value of the message telling the user what question they are on */
     let currentQuestionNumberDisplay = document.getElementById('question-number')
     currentQuestionNumberDisplay.innerHTML = `<p>Question number ${currentQuestionCounter}</p>`;
+    /* NEED TO AMEND THIS SO THE GREEETING FUNCTION ISN'T CALLED EVERYTIME, ONLY THE FIRST TIME, CAN PUT IN A CONDITIONAL IF TO ACHIEVE THIS? */
     greetings();
     questionText(currentQuestionCounter);
 }
+
+console.log('line 105, outside of function scope, and the value of currentQuestionCounter is ', currentQuestionCounter);
 
 /* Use this only when displaying the first question in the quiz */
 function greetings() {
@@ -117,9 +122,15 @@ function questionText(questionNumber) {
     <p>${questions[questionIndex].Question}</p>`
 }
 
-function storeAnswer(event) {
+function checkAnswer(event) {
     event.preventDefault();
     let userAnswerValue = userAnswerForm.elements['userAnswer'].value;
-    userAnswers.push(userAnswerValue);
-    console.log(userAnswers);
+    if (userAnswerValue) {
+        userAnswers.push(userAnswerValue);
+        console.log(userAnswers);
+        quizQuestions.classList.add('hide');
+        quizFeedback.classList.remove('hide');
+    } else {
+        alert("I didn't catch that, please enter your answer again and hit the submit button");
+    }
 }

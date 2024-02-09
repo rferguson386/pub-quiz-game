@@ -1,8 +1,10 @@
 /* declaring various variables here so they can be reused by multiple functions */
 let userName;
-let currentQuestionCounter = 0;
+var currentQuestionCounter = 0;
 let userAnswer;
 let userAnswers = [];
+let correctScoreCount = 0;
+let incorrectScoreCount = 0;
 
 /* Questions were taken from this url https://www.radiotimes.com/quizzes/pub-quiz-general-knowledge/ */
 let questions = [{
@@ -48,11 +50,12 @@ let questions = [{
 ];
 
 
-/* declaring variables for section ids so we can add or remove the hide class to them when functions run */
+/* declaring variables for section and div ids so we can add or remove the hide class to them when functions run */
 const introContent = document.getElementById('intro-content');
 const quizProgress = document.getElementById('quiz-progress');
 const quizQuestions = document.getElementById('quiz-questions');
 const quizFeedback = document.getElementById('quiz-feedback');
+const questionFeedback = document.getElementById('question-feedback');
 const finalScore = document.getElementById('final-score');
 const runningScore = document.getElementById('quiz-running-score');
 
@@ -62,14 +65,11 @@ const userNameForm = document.getElementById('username-form');
 const userAnswerForm = document.getElementById('current-question-form')
 
 userNameForm.addEventListener('submit', startGame);
-userAnswerForm.addEventListener('submit', checkAnswer);
+userAnswerForm.addEventListener('submit', answerValidation);
 
 /* The main function to start the game */
 function startGame(event) {
     event.preventDefault();
-    let userCurrentAnswer = 'TO BE DEFINED';
-    let correctScoreCount = 0;
-    let incorrectScoreCount = 0;
     let userInputValue = userNameForm.elements['userName'].value;
     /* check that the entry does not contain any numbers and also is not an undefined, null, 0, NaN or empty string value */
     if (!hasNumber(userInputValue) && userInputValue) {
@@ -120,9 +120,10 @@ function questionText(questionNumber) {
     let questionIndex = questionNumber - 1;
     currentQuestion.innerHTML = `
     <p>${questions[questionIndex].Question}</p>`
+
 }
 
-function checkAnswer(event) {
+function answerValidation(event) {
     event.preventDefault();
     let userAnswerValue = userAnswerForm.elements['userAnswer'].value;
     if (userAnswerValue) {
@@ -133,4 +134,8 @@ function checkAnswer(event) {
     } else {
         alert("I didn't catch that, please enter your answer again and hit the submit button");
     }
+}
+
+function feedbackWriter(questionNumber) {
+
 }

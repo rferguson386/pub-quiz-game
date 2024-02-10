@@ -1,8 +1,7 @@
 /* declaring various variables here so they can be reused by multiple functions */
 var userName;
 var currentQuestionCounter = 0;
-var userAnswerValue;
-let userAnswers = [];
+var userAnswers = [];
 let correctScoreCount = 0;
 let incorrectScoreCount = 0;
 
@@ -119,26 +118,27 @@ function setQuestionText(questionNumber) {
     <p>${questions[questionIndex].Question}</p>`
 }
 
-/* Validates that the user has not entered a blank answer */
 function answerValidation(event) {
     event.preventDefault();
-    let userAnswerValue = userAnswerForm.elements['userAnswer'].value;
-    if (userAnswerValue) {
-        userAnswers.push(userAnswerValue);
-        console.log(userAnswers);
+    let userAnswer = userAnswerForm.elements['userAnswer'].value;
+    /* check that the entry is not blank, this needs to be validated differently than the */
+    if (userAnswer) {
+        console.log(userAnswer, userAnswer.length);
+        userAnswers.push(userAnswer);
         quizQuestions.classList.add('hide');
         quizFeedback.classList.remove('hide');
-        console.log('line 131, value of currentQuestionCounter is ', currentQuestionCounter);
+        answerFeedback.classList.remove('hide');
+        console.log('line 130, value of currentQuestionCounter is ', currentQuestionCounter);
         feedbackWriter(currentQuestionCounter);
     } else {
-        alert("I didn't catch that, please enter your answer again and hit the submit button");
+        alert("I didn't catch that, please enter the answer again and hit the submit button");
     }
 }
 
 function feedbackWriter(questionNumber) {
     let answerIndex = questionNumber - 1;
     let feedback = document.getElementById('feedback');
-    if (questions[answerIndex].Answer == userAnswerValue) {
+    if (questions[answerIndex].Answer == userAnswer) {
         feedback.innerHTML = `
         <p>Congratulations ${userName}, you got that question correct</p>`
     } else {
@@ -146,4 +146,3 @@ function feedbackWriter(questionNumber) {
         <p>I'm sorry ${userName}, you got that question wrong, the answer should have been ${questions[answerIndex].Answer}</p>`
     }
 }
-console.log('line 149, value of currentQuestionCounter is ', currentQuestionCounter)

@@ -123,12 +123,10 @@ function answerValidation(event) {
     let userAnswer = userAnswerForm.elements['userAnswer'].value;
     /* check that the entry is not blank, this needs to be validated differently than the */
     if (userAnswer) {
-        console.log(userAnswer, userAnswer.length);
         userAnswers.push(userAnswer);
         quizQuestions.classList.add('hide');
         quizFeedback.classList.remove('hide');
         answerFeedback.classList.remove('hide');
-        console.log('line 130, value of currentQuestionCounter is ', currentQuestionCounter);
         feedbackWriter(currentQuestionCounter);
     } else {
         alert("I didn't catch that, please enter the answer again and hit the submit button");
@@ -138,7 +136,9 @@ function answerValidation(event) {
 function feedbackWriter(questionNumber) {
     let answerIndex = questionNumber - 1;
     let feedback = document.getElementById('feedback');
-    if (questions[answerIndex].Answer == userAnswer) {
+    console.log(questions[0].Answer);
+    console.log('answer index is ', answerIndex, 'question answer is ', questions[answerIndex].Answer, 'user answer is ', userAnswers[answerIndex]);
+    if (questions[answerIndex].Answer == userAnswers[answerIndex]) {
         feedback.innerHTML = `
         <p>Congratulations ${userName}, you got that question correct</p>`
     } else {

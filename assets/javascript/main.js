@@ -215,14 +215,16 @@ function playAgain() {
 /* The function to start the game a second time */
 function secondPlaythrough() {
     /* all sections need to be hidden again */
-    introText.classList.add('hide');
     quizProgress.classList.add('hide');
     quizQuestions.classList.add('hide');
     quizFeedback.classList.add('hide');
     answerFeedback.classList.add('hide');
     runningScore.classList.add('hide');
+    document.getElementById('username-form-div').classList.add('hide');
 
     /* display second playthrough intro content */
+    introContent.classList.remove('hide');
+    introText.classList.add('hide');
     secondPlaythroughIntroContent.classList.remove('hide');
     usernameChange.classList.remove('hide');
 
@@ -237,4 +239,8 @@ function secondPlaythrough() {
     correctScoreCount = 0;
     incorrectScoreCount = 0;
     playThroughCount = 0;
+
+    /* Start game with current username if the user chooses */
+    document.getElementById('keep-name').addEventListener('click', displayGameContent);
+
 }

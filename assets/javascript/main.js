@@ -2,8 +2,8 @@
 var userName;
 var currentQuestionCounter = 0;
 var userAnswers = [];
-let correctScoreCount = 0;
-let incorrectScoreCount = 0;
+var correctScoreCount = 0;
+var incorrectScoreCount = 0;
 
 /* Questions were taken from this url https://www.radiotimes.com/quizzes/pub-quiz-general-knowledge/ */
 const questions = [{
@@ -86,9 +86,9 @@ function hasNumber(myString) {
 }
 
 function displayQuestionSection() {
-    introContent.classList.add('hide');
-    quizProgress.classList.remove('hide');
-    quizQuestions.classList.remove('hide');
+    introContent.classList.add('hide'); /* hide intro message */
+    quizProgress.classList.remove('hide'); /* display info about current question number */
+    quizQuestions.classList.remove('hide'); /* display quiz question */
     setQuestionNumberDisplay();
 }
 
@@ -97,15 +97,16 @@ function setQuestionNumberDisplay() {
     /* Set the value of the message telling the user what question they are on */
     let currentQuestionNumberDisplay = document.getElementById('question-number')
     currentQuestionNumberDisplay.innerHTML = `<p>Question number ${currentQuestionCounter}</p>`;
-    /* NEED TO AMEND THIS SO THE GREEETING FUNCTION ISN'T CALLED EVERYTIME, ONLY THE FIRST TIME, CAN PUT IN A CONDITIONAL IF TO ACHIEVE THIS? */
+    /* check if the user should see the greeting message or not */
     if (currentQuestionCounter === 1) {
         greetings();
     } else {
         document.getElementById('first-question-greeting').classList.add('hide');
     }
-    quizQuestions.classList.remove('hide');
-    quizFeedback.classList.add('hide');
-    answerFeedback.classList.add('hide');
+    quizQuestions.classList.remove('hide'); /* display quiz questions */
+    quizFeedback.classList.add('hide'); /* hide answer feedback section */
+    answerFeedback.classList.add('hide'); /* hide specific answer feedback */
+    runningScore.classList.remove('hide'); /* display running scores */
     setQuestionText(currentQuestionCounter);
 }
 
@@ -148,9 +149,21 @@ function feedbackWriter(questionNumber) {
     if (questions[answerIndex].Answer == userAnswers[answerIndex]) {
         feedback.innerHTML = `
         <p>Congratulations ${userName}, you got that question correct</p>`
+        addCorrectScore();
     } else {
         feedback.innerHTML = `
         <p>I'm sorry ${userName}, you got that question wrong, the answer should have been ${questions[answerIndex].Answer}</p>`
+        addIncorrectScore();
     }
     document.getElementById('next-question').addEventListener('click', setQuestionNumberDisplay);
+}
+
+function addCorrectScore() {
+    corectScoreCount++
+    document.getElementById('correct-score-tally').innerHTML = correctScoreCount, ' correct answers';
+}
+
+function addIncorrectScore() {
+    incorectScoreCount++
+    document.getElementById('incorrect-score-tally').innerHTML = correctScoreCount, 'incorrect answers';
 }

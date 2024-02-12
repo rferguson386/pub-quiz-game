@@ -50,7 +50,7 @@ const questions = [{
 ];
 
 
-/* declaring variables for section and div ids so we can add or remove the hide class to them when functions run */
+/* declaring variables for section and div ids so we can add or remove the hide class to them when functions need to do that */
 const introContent = document.getElementById('intro-content');
 const introText = document.getElementById('intro-text');
 const quizProgress = document.getElementById('quiz-progress');
@@ -60,6 +60,9 @@ const answerFeedback = document.getElementById('answer-feedback');
 const runningScore = document.getElementById('quiz-running-score');
 const returningUser = document.getElementById('returning-user');
 const feedback = document.getElementById('feedback');
+const finalScoreButton = document.getElementById('final-score');
+const playAgainButton = document.getElementById('play-again');
+const nextQuestionButton = document.getElementById('next-question');
 
 /* declaring variable for the username form and question answer form, we need to add an event listner on the form element ID,
 rather than the submit input element to prevent the default event of the form GET method */
@@ -80,7 +83,6 @@ function startGame(event) {
     /* check that the entry does not contain any numbers and also is not an undefined, null, 0, NaN or empty string value */
     if (!hasNumber(userInputValue) && userInputValue) {
         userName = userInputValue;
-        console.log('the game will start now');
         displayGameContent()
     } else {
         alert("I think you can choose a better name than that! Please enter a username without any numeric characters");
@@ -136,9 +138,6 @@ function setQuestionText(questionNumber) {
     let questionIndex = questionNumber - 1;
     currentQuestion.innerHTML = `
     <p>${questions[questionIndex].Question}</p>`
-    console.log(questions[questionIndex]);
-    /*  console.log(questions[questionIndex].key[Question]); */
-    console.log(questions[questionIndex].Question);
 }
 
 function answerValidation(event) {
@@ -160,7 +159,9 @@ function setFeedbackArea() {
     answerFeedback.classList.remove('hide'); /* display specific answer feedback - still to be written at this point */
     setFeedbackText(currentQuestionCounter);
     if (currentQuestionCounter === 10) {
-        document.getElementById('final-score').addEventListener('click', finalScoreDisplay);
+        nextQuestionButton.classList.add('hide');
+        finalScoreButton.classList.remove('hide');
+        finalScoreButton.addEventListener('click', finalScoreDisplay);
     } else {
         /* Upon clicking the next question button we loop back to a previous function to display the question area */
         document.getElementById('next-question').addEventListener('click', setQuestionArea);
@@ -171,7 +172,6 @@ function setFeedbackArea() {
 which is 1 less than the current question number (by using the currentQuestionCounter variable) */
 function setFeedbackText(questionNumber) {
     let answerIndex = questionNumber - 1;
-    console.log('answer index is ', answerIndex, 'question answer is ', questions[answerIndex].Answer, 'user answer is ', userAnswers[answerIndex]);
     if (questions[answerIndex].Answer.toLowerCase() == userAnswers[answerIndex].toLowerCase()) {
         feedback.innerHTML = `
         <p>Congratulations ${userName}, you got that question correct</p>`;
@@ -198,10 +198,10 @@ function finalScoreDisplay() {
     quizFeedback.classList.remove('hide'); /* display answer feedback section */
     answerFeedback.classList.remove('hide'); /* display specific answer feedback */
     quizQuestions.classList.add('hide'); /* hide quiz questions section */
+    finalScoreButton.classList.add('hide');
     feedback.innerHTML = `
-    Congratulations ${userName}, you answered ${correctScoreCount} questions correctly and ${incorrectScoreCount} questions incorrectly. Would you like to play the quiz again?`;
-    let playAgainButton = document.getElementById('play-again');
-    playAgainButton.innerText = 'Play again';
+    Congratulations ${userName}, you answered ${correctScoreCount} questions correctly and ${incorrectScoreCount} questions incorrectly. Click the button below if you would like to play the quiz again.`;
+    playAgainButton.classList.remove('hide');
     playAgainButton.addEventListener('click', playAgain);
 }
 
@@ -222,21 +222,15 @@ function secondPlaythrough() {
     quizFeedback.classList.add('hide');
     answerFeedback.classList.add('hide');
     runningScore.classList.add('hide');
+    playAgainButton.classList.add('hide');
+    nextQuestionButton.classList.remove('hide');
 
     /* display second playthrough intro content */
     introContent.classList.remove('hide');
     introText.classList.add('hide');
     secondPlaythroughIntroContent.classList.remove('hide');
-    console.log('line 227', userName);
-    /* Include username in the second playthrough intro content */
-    console.log(returningUser);
     returningUser.innerHTML = userName;
-    console.log('line 232', userName);
 
-    /* Change the play again button back to function as the next question button */
-    let nextQuestionButton = document.getElementById('play-again');
-    nextQuestionButton.innerHTML = 'Next question';
-    nextQuestionButton.id = ('next-question');
 
     /* Reset quiz progress values */
     currentQuestionCounter = 0;

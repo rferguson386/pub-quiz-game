@@ -90,7 +90,6 @@ function displayGameContent() {
     quizProgress.classList.remove('hide'); /* display info about current question number */
     quizQuestions.classList.remove('hide'); /* display quiz question */
     runningScore.classList.remove('hide'); /* display running scores */
-    greetings();
     setQuestionArea();
 }
 
@@ -103,13 +102,16 @@ function greetings() {
 
 /* Prepares the quiz question area so all sections are displayed, and can then have content written by subfunctions */
 function setQuestionArea() {
+    /* the line below resolves a bug where the text area on questions 2 and above was appearing with the previous answer in the box */
     userAnswerForm.elements['userAnswer'].value = '';
     currentQuestionCounter++;
     /* Set the value of the message telling the user what question they are on */
     let currentQuestionNumberDisplay = document.getElementById('question-number')
     currentQuestionNumberDisplay.innerHTML = `<p>Question number ${currentQuestionCounter}</p>`;
     /* check if the user should see the greeting message or not */
-    if (currentQuestionCounter === 1) {} else {
+    if (currentQuestionCounter === 1) {
+        greetings();
+    } else {
         document.getElementById('first-question-greeting').classList.add('hide');
     }
     quizQuestions.classList.remove('hide'); /* display quiz questions section */
@@ -145,8 +147,15 @@ function setFeedbackArea() {
     quizFeedback.classList.remove('hide'); /* display answer feedback section */
     answerFeedback.classList.remove('hide'); /* display specific answer feedback - still to be written at this point */
     setFeedbackText(currentQuestionCounter);
-    /* Upon clicking the next question button we loop back to a previous function to display the question area */
-    document.getElementById('next-question').addEventListener('click', setQuestionArea);
+    if (currentQuestionCounter === 10) {
+        let finalScoreButton = document.getElementById('next-question');
+        finalScoreButton.innerHTML = 'Final score'
+        finalScoreButton.id = 'final-score'
+        document.getElementById('final-score').addEventListener('click', finalScoreDisplay);
+    } else {
+        /* Upon clicking the next question button we loop back to a previous function to display the question area */
+        document.getElementById('next-question').addEventListener('click', setQuestionArea);
+    }
 }
 
 /* Sets the question by fetching it from the answer property in the array index position
@@ -174,4 +183,14 @@ function addCorrectScore() {
 function addIncorrectScore() {
     incorrectScoreCount++;
     document.getElementById('incorrect-score-tally').innerHTML = incorrectScoreCount + ' incorrect answers';
+}
+
+function finalScoreDisplay() {
+    finalScore.classList.remove('hide'); /* display quiz questions section */
+    quizFeedback.classList.remove('hide'); /* display answer feedback section */
+    answerFeedback.classList.remove('hide'); /* hide specific answer feedback */
+    quizQuestions.classList.add('hide'); /* hide quiz questions section */
+    let feedback = document.getElementById('feedback');
+    feedback.innerHTML = `
+    <p>Congratulations ${userName}, you got ${correctScoreCount} questions correct and ${incorrectScoreCount} questions incorrect</p>`;
 }

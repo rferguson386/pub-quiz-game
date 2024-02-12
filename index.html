@@ -2,21 +2,21 @@
 <html lang="en">
 
 <head>
-    <!-- This is the main stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
+
     <!-- This is the main javascript file-->
-    <script src="assets/javascript/main.js" async></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pub Quiz Game</title>
     <meta name="description" content="Fun pub quiz game- how many can you get right?">
     <meta name="keywords" content="pub quiz, pub quiz questions, pub quiz game">
+    <!-- This is the main stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Pub Quiz Game</title>
 </head>
 
 <body>
     <!--Header content-->
     <header>
-        <a href="/">
+        <a href="index.html" aria-label="">
             <h1 class="logo">
                 Pub Quiz Game
             </h1>
@@ -74,6 +74,8 @@
             <div id="answer-feedback" class="hide">
                 <p id="feedback">Display feedback here (to be added by javascript)</p>
                 <button id="next-question">Next question</button>
+                <button id="final-score" class="hide">Final score</button>
+                <button id="play-again" class="hide">Play again</button>
             </div>
         </section>
         <section id="quiz-running-score" class="hide">
@@ -85,6 +87,7 @@
     <footer>
         Footer content
     </footer>
+    <script src="assets/javascript/main.js"></script>
 </body>
 
 </html>

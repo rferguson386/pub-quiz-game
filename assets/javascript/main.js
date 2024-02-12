@@ -1,10 +1,10 @@
 /* declaring various variables here so they can be reused by multiple functions */
-var userName;
-var currentQuestionCounter = 0;
-var userAnswers = [];
-var correctScoreCount = 0;
-var incorrectScoreCount = 0;
-var playThroughCount = 0;
+let userName;
+let currentQuestionCounter = 0;
+let userAnswers = [];
+let correctScoreCount = 0;
+let incorrectScoreCount = 0;
+let playThroughCount = 0;
 
 /* Questions were taken from this url https://www.radiotimes.com/quizzes/pub-quiz-general-knowledge/ */
 const questions = [{
@@ -58,6 +58,8 @@ const quizQuestions = document.getElementById('quiz-questions');
 const quizFeedback = document.getElementById('quiz-feedback');
 const answerFeedback = document.getElementById('answer-feedback');
 const runningScore = document.getElementById('quiz-running-score');
+const returningUser = document.getElementById('returning-user');
+const feedback = document.getElementById('feedback');
 
 /* declaring variable for the username form and question answer form, we need to add an event listner on the form element ID,
 rather than the submit input element to prevent the default event of the form GET method */
@@ -122,7 +124,9 @@ function setQuestionArea() {
     quizQuestions.classList.remove('hide'); /* display quiz questions section */
     quizFeedback.classList.add('hide'); /* hide answer feedback section */
     answerFeedback.classList.add('hide'); /* hide specific answer feedback */
-    setQuestionText(currentQuestionCounter);
+    if (currentQuestionCounter <= 9) {
+        setQuestionText(currentQuestionCounter);
+    }
 }
 
 /* Sets the question by fetching it from the question property in the array index position
@@ -132,6 +136,9 @@ function setQuestionText(questionNumber) {
     let questionIndex = questionNumber - 1;
     currentQuestion.innerHTML = `
     <p>${questions[questionIndex].Question}</p>`
+    console.log(questions[questionIndex]);
+    /*  console.log(questions[questionIndex].key[Question]); */
+    console.log(questions[questionIndex].Question);
 }
 
 function answerValidation(event) {
@@ -153,9 +160,6 @@ function setFeedbackArea() {
     answerFeedback.classList.remove('hide'); /* display specific answer feedback - still to be written at this point */
     setFeedbackText(currentQuestionCounter);
     if (currentQuestionCounter === 10) {
-        let finalScoreButton = document.getElementById('next-question');
-        finalScoreButton.innerHTML = 'Final score'
-        finalScoreButton.id = 'final-score'
         document.getElementById('final-score').addEventListener('click', finalScoreDisplay);
     } else {
         /* Upon clicking the next question button we loop back to a previous function to display the question area */
@@ -167,7 +171,6 @@ function setFeedbackArea() {
 which is 1 less than the current question number (by using the currentQuestionCounter variable) */
 function setFeedbackText(questionNumber) {
     let answerIndex = questionNumber - 1;
-    let feedback = document.getElementById('feedback');
     console.log('answer index is ', answerIndex, 'question answer is ', questions[answerIndex].Answer, 'user answer is ', userAnswers[answerIndex]);
     if (questions[answerIndex].Answer.toLowerCase() == userAnswers[answerIndex].toLowerCase()) {
         feedback.innerHTML = `
@@ -195,12 +198,10 @@ function finalScoreDisplay() {
     quizFeedback.classList.remove('hide'); /* display answer feedback section */
     answerFeedback.classList.remove('hide'); /* display specific answer feedback */
     quizQuestions.classList.add('hide'); /* hide quiz questions section */
-    let feedback = document.getElementById('feedback');
     feedback.innerHTML = `
     Congratulations ${userName}, you answered ${correctScoreCount} questions correctly and ${incorrectScoreCount} questions incorrectly. Would you like to play the quiz again?`;
-    let playAgainButton = document.getElementById('final-score');
-    playAgainButton.innerHTML = 'Play again';
-    playAgainButton.id = 'play-again';
+    let playAgainButton = document.getElementById('play-again');
+    playAgainButton.innerText = 'Play again';
     playAgainButton.addEventListener('click', playAgain);
 }
 
@@ -210,7 +211,10 @@ function playAgain() {
     secondPlaythrough();
 }
 
-/* The function to start the game a second time */
+
+/**
+ * The function to start the game a second time
+ */
 function secondPlaythrough() {
     /* all sections need to be hidden again */
     quizProgress.classList.add('hide');
@@ -223,10 +227,11 @@ function secondPlaythrough() {
     introContent.classList.remove('hide');
     introText.classList.add('hide');
     secondPlaythroughIntroContent.classList.remove('hide');
-    usernameChange.classList.remove('hide');
-
+    console.log('line 227', userName);
     /* Include username in the second playthrough intro content */
-    document.getElementById('returning-user').innerHTMl = userName;
+    console.log(returningUser);
+    returningUser.innerHTML = userName;
+    console.log('line 232', userName);
 
     /* Change the play again button back to function as the next question button */
     let nextQuestionButton = document.getElementById('play-again');

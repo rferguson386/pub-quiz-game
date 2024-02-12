@@ -66,12 +66,10 @@ const userAnswerForm = document.getElementById('current-question-form')
 
 /* these variables only come into play in the second playthrough of the quiz */
 const secondPlaythroughIntroContent = document.getElementById('second-playthrough-text');
-const usernameChange = document.getElementById('username-change-div');
 
-
+/* Setting up event listeners that need to be done before quiz flow begins */
 userNameForm.addEventListener('submit', startGame);
 userAnswerForm.addEventListener('submit', answerValidation);
-
 
 /* The main function to start the game */
 function startGame(event) {
@@ -220,7 +218,6 @@ function secondPlaythrough() {
     quizFeedback.classList.add('hide');
     answerFeedback.classList.add('hide');
     runningScore.classList.add('hide');
-    document.getElementById('username-form-div').classList.add('hide');
 
     /* display second playthrough intro content */
     introContent.classList.remove('hide');
@@ -239,8 +236,9 @@ function secondPlaythrough() {
     correctScoreCount = 0;
     incorrectScoreCount = 0;
     playThroughCount = 0;
+    document.getElementById('correct-score-tally').innerHTML = '0 correct answers';
+    document.getElementById('incorrect-score-tally').innerHTML = '0 incorrect answers';
 
     /* Start game with current username if the user chooses */
     document.getElementById('keep-name').addEventListener('click', displayGameContent);
-
 }

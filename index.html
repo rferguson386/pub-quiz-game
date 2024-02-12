@@ -25,13 +25,35 @@
     <!--Main conetnt-->
     <main>
         <section id="intro-content">
-            <div id="intro-text">Intro content to the quiz, here I will explain the rules and ask the user to enter
-                their name in the form below to start the quiz.</div>
+            <div id="intro-text">
+                <p>Welcome user, to the most challenging pub quiz you will play today (probably).
+                    The quiz will consist of ten questions, and you will receive feedback after each answer, followed by
+                    a final scores screen telling you how many answers you got correct, and how many answers you got
+                    wrong!
+                    If you would like to start the quiz, choose a username and enter it in the form below, then hit
+                    submit.
+                </p>
+            </div>
             <div id="username-form-div">
                 <form method="GET" action="response.html" id="username-form">
                     <label for="userName">Username</label>
                     <input type="text" id="userName" name="userName" placeholder="Enter your username here">
                     <input type="submit" value="Start" id="start-button">
+                </form>
+            </div>
+            <div id="second-playthrough-text" class="hide">
+                <p>
+                    Welcome back <span id="returning-user"></span>, if you would like to change your name, use the form
+                    below to submit a new username. Otherwise, click the "Use my current name" button to begin the quiz
+                    again.
+                </p>
+                <button id="keep-name">Use my current name</button>
+            </div>
+            <div id="username-change-div" class="hide">
+                <form method="GET" action="response.html" id="username-change-form">
+                    <label for="usernameChange">Username</label>
+                    <input type="text" id="usernameChange" name="usernameChange" placeholder="Enter your username here">
+                    <input type="submit" value="Change username" id="restart-button">
                 </form>
             </div>
         </section>

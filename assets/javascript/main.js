@@ -52,6 +52,7 @@ const questions = [{
 
 /* declaring variables for section and div ids so we can add or remove the hide class to them when functions run */
 const introContent = document.getElementById('intro-content');
+const introText = document.getElementById('intro-text');
 const quizProgress = document.getElementById('quiz-progress');
 const quizQuestions = document.getElementById('quiz-questions');
 const quizFeedback = document.getElementById('quiz-feedback');
@@ -63,8 +64,14 @@ rather than the submit input element to prevent the default event of the form GE
 const userNameForm = document.getElementById('username-form');
 const userAnswerForm = document.getElementById('current-question-form')
 
+/* these variables only come into play in the second playthrough of the quiz */
+const secondPlaythroughIntroContent = document.getElementById('second-playthrough-text');
+const usernameChange = document.getElementById('username-change-div');
+
+
 userNameForm.addEventListener('submit', startGame);
 userAnswerForm.addEventListener('submit', answerValidation);
+
 
 /* The main function to start the game */
 function startGame(event) {
@@ -86,7 +93,7 @@ function hasNumber(myString) {
 }
 
 function displayGameContent() {
-    introContent.classList.add('hide'); /* hide intro message */
+    introContent.classList.add('hide'); /* hide intro message (inc username form) */
     quizProgress.classList.remove('hide'); /* display info about current question number */
     quizQuestions.classList.remove('hide'); /* display quiz question */
     runningScore.classList.remove('hide'); /* display running scores */
@@ -205,15 +212,26 @@ function playAgain() {
     secondPlaythrough();
 }
 
-/* The main function to start the game, all sections apart from intro content need to be hidden again and all question progress values set to 0 */
+/* The function to start the game a second time */
 function secondPlaythrough() {
-    introContent.classList.remove('hide');
+    /* all sections need to be hidden again */
+    introText.classList.add('hide');
     quizProgress.classList.add('hide');
     quizQuestions.classList.add('hide');
     quizFeedback.classList.add('hide');
     answerFeedback.classList.add('hide');
-    finalScore.classList.add('hide');
     runningScore.classList.add('hide');
+
+    /* display second playthrough intro content */
+    secondPlaythroughIntroContent.classList.remove('hide');
+    usernameChange.classList.remove('hide');
+
+    /* Change the play again button back to function as the next question button */
+    let nextQuestionButton = document.getElementById('play-again');
+    nextQuestionButton.innerHTML = 'Next question';
+    nextQuestionButton.id = ('next-question');
+
+    /* Reset quiz progress values */
     currentQuestionCounter = 0;
     userAnswers = [];
     correctScoreCount = 0;

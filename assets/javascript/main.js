@@ -103,6 +103,7 @@ function greetings() {
 
 /* Prepares the quiz question area so all sections are displayed, and can then have content written by subfunctions */
 function setQuestionArea() {
+    userAnswerForm.elements['userAnswer'].value = '';
     currentQuestionCounter++;
     /* Set the value of the message telling the user what question they are on */
     let currentQuestionNumberDisplay = document.getElementById('question-number')
@@ -153,9 +154,8 @@ which is 1 less than the current question number (by using the currentQuestionCo
 function setFeedbackText(questionNumber) {
     let answerIndex = questionNumber - 1;
     let feedback = document.getElementById('feedback');
-    console.log(questions[0].Answer);
     console.log('answer index is ', answerIndex, 'question answer is ', questions[answerIndex].Answer, 'user answer is ', userAnswers[answerIndex]);
-    if (questions[answerIndex].Answer == userAnswers[answerIndex]) {
+    if (questions[answerIndex].Answer.toLowerCase() == userAnswers[answerIndex].toLowerCase()) {
         feedback.innerHTML = `
         <p>Congratulations ${userName}, you got that question correct</p>`;
         addCorrectScore();

@@ -197,7 +197,7 @@ function finalScoreDisplay() {
     quizQuestions.classList.add('hide'); /* hide quiz questions section */
     let feedback = document.getElementById('feedback');
     feedback.innerHTML = `
-    Congratulations ${userName}, you got ${correctScoreCount} questions correct and ${incorrectScoreCount} questions incorrect. Would you like to play the quiz again?`;
+    Congratulations ${userName}, you answered ${correctScoreCount} questions correctly and ${incorrectScoreCount} questions incorrectly. Would you like to play the quiz again?`;
     let playAgainButton = document.getElementById('final-score');
     playAgainButton.innerHTML = 'Play again';
     playAgainButton.id = 'play-again';
@@ -224,6 +224,9 @@ function secondPlaythrough() {
     introText.classList.add('hide');
     secondPlaythroughIntroContent.classList.remove('hide');
     usernameChange.classList.remove('hide');
+
+    /* Include username in the second playthrough intro content */
+    document.getElementById('returning-user').innerHTMl = userName;
 
     /* Change the play again button back to function as the next question button */
     let nextQuestionButton = document.getElementById('play-again');

@@ -98,7 +98,14 @@ function setQuestionNumberDisplay() {
     let currentQuestionNumberDisplay = document.getElementById('question-number')
     currentQuestionNumberDisplay.innerHTML = `<p>Question number ${currentQuestionCounter}</p>`;
     /* NEED TO AMEND THIS SO THE GREEETING FUNCTION ISN'T CALLED EVERYTIME, ONLY THE FIRST TIME, CAN PUT IN A CONDITIONAL IF TO ACHIEVE THIS? */
-    greetings();
+    if (currentQuestionCounter === 1) {
+        greetings();
+    } else {
+        document.getElementById('first-question-greeting').classList.add('hide');
+    }
+    quizQuestions.classList.remove('hide');
+    quizFeedback.classList.add('hide');
+    answerFeedback.classList.add('hide');
     setQuestionText(currentQuestionCounter);
 }
 
@@ -145,4 +152,5 @@ function feedbackWriter(questionNumber) {
         feedback.innerHTML = `
         <p>I'm sorry ${userName}, you got that question wrong, the answer should have been ${questions[answerIndex].Answer}</p>`
     }
+    document.getElementById('next-question').addEventListener('click', setQuestionNumberDisplay);
 }

@@ -4,6 +4,7 @@ var currentQuestionCounter = 0;
 var userAnswers = [];
 var correctScoreCount = 0;
 var incorrectScoreCount = 0;
+var playThroughCount = 0;
 
 /* Questions were taken from this url https://www.radiotimes.com/quizzes/pub-quiz-general-knowledge/ */
 const questions = [{
@@ -55,7 +56,6 @@ const quizProgress = document.getElementById('quiz-progress');
 const quizQuestions = document.getElementById('quiz-questions');
 const quizFeedback = document.getElementById('quiz-feedback');
 const answerFeedback = document.getElementById('answer-feedback');
-const finalScore = document.getElementById('final-score');
 const runningScore = document.getElementById('quiz-running-score');
 
 /* declaring variable for the username form and question answer form, we need to add an event listner on the form element ID,
@@ -186,11 +186,37 @@ function addIncorrectScore() {
 }
 
 function finalScoreDisplay() {
-    finalScore.classList.remove('hide'); /* display quiz questions section */
+    quizProgress.classList.add('hide'); /* hide quiz progress section */
     quizFeedback.classList.remove('hide'); /* display answer feedback section */
-    answerFeedback.classList.remove('hide'); /* hide specific answer feedback */
+    answerFeedback.classList.remove('hide'); /* display specific answer feedback */
     quizQuestions.classList.add('hide'); /* hide quiz questions section */
     let feedback = document.getElementById('feedback');
     feedback.innerHTML = `
-    <p>Congratulations ${userName}, you got ${correctScoreCount} questions correct and ${incorrectScoreCount} questions incorrect</p>`;
+    Congratulations ${userName}, you got ${correctScoreCount} questions correct and ${incorrectScoreCount} questions incorrect. Would you like to play the quiz again?`;
+    let playAgainButton = document.getElementById('final-score');
+    playAgainButton.innerHTML = 'Play again';
+    playAgainButton.id = 'play-again';
+    playAgainButton.addEventListener('click', playAgain);
+}
+
+function playAgain() {
+    alert('you have chosen to play the game again');
+    playThroughCount++;
+    secondPlaythrough();
+}
+
+/* The main function to start the game, all sections apart from intro content need to be hidden again and all question progress values set to 0 */
+function secondPlaythrough() {
+    introContent.classList.remove('hide');
+    quizProgress.classList.add('hide');
+    quizQuestions.classList.add('hide');
+    quizFeedback.classList.add('hide');
+    answerFeedback.classList.add('hide');
+    finalScore.classList.add('hide');
+    runningScore.classList.add('hide');
+    currentQuestionCounter = 0;
+    userAnswers = [];
+    correctScoreCount = 0;
+    incorrectScoreCount = 0;
+    playThroughCount = 0;
 }

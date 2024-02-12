@@ -144,6 +144,7 @@ function setFeedbackArea() {
     quizFeedback.classList.remove('hide'); /* display answer feedback section */
     answerFeedback.classList.remove('hide'); /* display specific answer feedback - still to be written at this point */
     setFeedbackText(currentQuestionCounter);
+    /* Upon clicking the next question button we loop back to a previous function to display the question area */
     document.getElementById('next-question').addEventListener('click', setQuestionArea);
 }
 

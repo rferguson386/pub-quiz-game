@@ -108,5 +108,9 @@ input[type=text] {
 
 /* Footer styles */
 footer {
-    background-color: blue;
+    width: 90%;
+    background-color: #AFE0E0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

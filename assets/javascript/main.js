@@ -79,7 +79,7 @@ userAnswerForm.addEventListener('submit', answerValidation);
 /* The main function to start the game */
 function startGame(event) {
     event.preventDefault();
-    let userInputValue = userNameForm.elements['userName'].value;
+    let userInputValue = userNameForm.elements['userName'].value.trim();
     /* check that the entry does not contain any numbers and also is not an undefined, null, 0, NaN or empty string value */
     if (!hasNumber(userInputValue) && userInputValue) {
         userName = userInputValue;
@@ -143,11 +143,8 @@ function setQuestionText(questionNumber) {
 function answerValidation(event) {
     event.preventDefault();
     let userAnswer = userAnswerForm.elements['userAnswer'].value.trim();
-    console.log(userAnswer);
-    console.log(userAnswer.trim())
     /* check that the entry is not blank */
     if (userAnswer) {
-        console.log(userAnswer, questions[0].Answer.toLowerCase())
         userAnswers.push(userAnswer);
         setFeedbackArea();
     } else {

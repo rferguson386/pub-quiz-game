@@ -116,7 +116,7 @@ function setQuestionArea() {
     currentQuestionCounter++;
     /* Set the value of the message telling the user what question they are on */
     let currentQuestionNumberDisplay = document.getElementById('question-number')
-    currentQuestionNumberDisplay.innerHTML = `<p>Question number ${currentQuestionCounter}</p>`;
+    currentQuestionNumberDisplay.innerHTML = `<h2>Question number ${currentQuestionCounter}</h2>`;
     /* check if the user should see the greeting message or not */
     if (currentQuestionCounter === 1) {
         greetings();
@@ -137,7 +137,7 @@ function setQuestionText(questionNumber) {
     let currentQuestion = document.getElementById('current-question');
     let questionIndex = questionNumber - 1;
     currentQuestion.innerHTML = `
-    <p>${questions[questionIndex].Question}</p>`
+    <h3>${questions[questionIndex].Question}</h3>`
 }
 
 function answerValidation(event) {

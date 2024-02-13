@@ -29,6 +29,10 @@ h1.logo {
     font-family: 'Public Sans', sans-serif;
 }
 
+a#homepage-link {
+    text-decoration: none;
+}
+
 /* Main content styles */
 main {
     background-color: white;
@@ -37,6 +41,7 @@ main {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
 }
 
 section {

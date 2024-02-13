@@ -70,6 +70,20 @@ section>div {
     width: 50%;
 }
 
+h2,
+h3,
+p,
+#correct-score-tally,
+#incorrect-score-tally {
+    padding: 0.5em;
+}
+
+form>label,
+form>input,
+form>textarea {
+    padding: 0.5em;
+}
+
 /* Footer styles */
 footer {
     background-color: blue;

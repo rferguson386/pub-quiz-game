@@ -67,7 +67,7 @@ const nextQuestionButton = document.getElementById('next-question');
 /* declaring variable for the username form and question answer form, we need to add an event listner on the form element ID,
 rather than the submit input element to prevent the default event of the form GET method */
 const userNameForm = document.getElementById('username-form');
-const userAnswerForm = document.getElementById('current-question-form')
+const userAnswerForm = document.getElementById('current-question-form');
 
 /* these variables only come into play in the second playthrough of the quiz */
 const secondPlaythroughIntroContent = document.getElementById('second-playthrough-text');
@@ -83,7 +83,7 @@ function startGame(event) {
     /* check that the entry does not contain any numbers and also is not an undefined, null, 0, NaN or empty string value */
     if (!hasNumber(userInputValue) && userInputValue) {
         userName = userInputValue;
-        displayGameContent()
+        displayGameContent();
     } else {
         alert("I think you can choose a better name than that! Please enter a username which is not blank text and doesn't contain any number characters");
     }
@@ -106,7 +106,7 @@ function displayGameContent() {
 function greetings() {
     let currentGreeting = document.getElementById('first-question-greeting');
     currentGreeting.innerHTML = `
-    <p>Hello ${userName}, here is the first question:</p>`
+    <p>Hello ${userName}, here is the first question:</p>`;
 }
 
 /* Prepares the quiz question area so all sections are displayed, and can then have content written by subfunctions */
@@ -115,7 +115,7 @@ function setQuestionArea() {
     userAnswerForm.elements['userAnswer'].value = '';
     currentQuestionCounter++;
     /* Set the value of the message telling the user what question they are on */
-    let currentQuestionNumberDisplay = document.getElementById('question-number')
+    let currentQuestionNumberDisplay = document.getElementById('question-number');
     currentQuestionNumberDisplay.innerHTML = `<h2>Question number ${currentQuestionCounter}</h2>`;
     /* check if the user should see the greeting message or not */
     if (currentQuestionCounter === 1) {
@@ -135,7 +135,7 @@ function setQuestionText(questionNumber) {
     let currentQuestion = document.getElementById('current-question');
     let questionIndex = questionNumber - 1;
     currentQuestion.innerHTML = `
-    <h3>${questions[questionIndex].Question}</h3>`
+    <h3>${questions[questionIndex].Question}</h3>`;
 }
 
 function answerValidation(event) {

@@ -85,7 +85,7 @@ function startGame(event) {
         userName = userInputValue;
         displayGameContent()
     } else {
-        alert("I think you can choose a better name than that! Please enter a username without any numeric characters");
+        alert("I think you can choose a better name than that! Please enter a username which is not blank text and doesn't contain any number characters");
     }
 }
 
@@ -148,7 +148,7 @@ function answerValidation(event) {
         userAnswers.push(userAnswer);
         setFeedbackArea();
     } else {
-        alert("I didn't catch that, please enter the answer again and hit the submit button");
+        alert("I didn't catch that, please enter the answer again, making sure it's not blank text, then hit the submit button");
     }
 }
 
@@ -206,7 +206,7 @@ function finalScoreDisplay() {
 }
 
 function playAgain() {
-    alert('you have chosen to play the game again');
+    alert('Awesome, you have chosen to play the game again');
     playThroughCount++;
     secondPlaythrough();
 }

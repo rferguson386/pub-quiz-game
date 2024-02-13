@@ -79,13 +79,14 @@ p,
 }
 
 form>label,
-form>input,
-form>textarea {
+form>input {
     padding: 0.5em;
+    margin: 0.5em 0;
 }
 
 button {
     padding: 0.5em;
+    margin: 0.5em;
 }
 
 input[type=text] {
@@ -94,6 +95,11 @@ input[type=text] {
 
 #keep-name {
     flex-grow: 0;
+}
+
+#correct-score-tally,
+#incorrect-score-tally {
+    margin: 0.75em;
 }
 
 .hide {

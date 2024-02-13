@@ -51,6 +51,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #F5F5D5;
 }
 
 section>div {

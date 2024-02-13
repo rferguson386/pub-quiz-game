@@ -126,9 +126,7 @@ function setQuestionArea() {
     quizQuestions.classList.remove('hide'); /* display quiz questions section */
     quizFeedback.classList.add('hide'); /* hide answer feedback section */
     answerFeedback.classList.add('hide'); /* hide specific answer feedback */
-    if (currentQuestionCounter <= 9) {
-        setQuestionText(currentQuestionCounter);
-    }
+    setQuestionText(currentQuestionCounter);
 }
 
 /* Sets the question by fetching it from the question property in the array index position

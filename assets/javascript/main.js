@@ -172,11 +172,11 @@ function setFeedbackText(questionNumber) {
     let answerIndex = questionNumber - 1;
     if (questions[answerIndex].Answer.toLowerCase() == userAnswers[answerIndex].toLowerCase()) {
         feedback.innerHTML = `
-        <p>Congratulations ${userName}, you got that question correct</p>`;
+        Congratulations ${userName}, you got that question correct`;
         addCorrectScore();
     } else {
         feedback.innerHTML = `
-        <p>I'm sorry ${userName}, you got that question wrong, the answer should have been ${questions[answerIndex].Answer}</p>`;
+        I'm sorry ${userName}, you got that question wrong, the answer should have been ${questions[answerIndex].Answer}`;
         addIncorrectScore();
     }
 }
@@ -198,7 +198,7 @@ function finalScoreDisplay() {
     quizQuestions.classList.add('hide'); /* hide quiz questions section */
     finalScoreButton.classList.add('hide');
     feedback.innerHTML = `
-    Congratulations ${userName}, you answered ${correctScoreCount} questions correctly and ${incorrectScoreCount} questions incorrectly. Click the button below if you would like to play the quiz again.`;
+    Congratulations ${userName}, you answered ${correctScoreCount} questions correctly and ${incorrectScoreCount} questions incorrectly. Click the play again button if you would like to play the quiz again.`;
     playAgainButton.classList.remove('hide');
     playAgainButton.addEventListener('click', playAgain);
 }

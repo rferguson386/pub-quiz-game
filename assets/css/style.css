@@ -61,7 +61,7 @@ section {
 
 section>div {
     width: 80%;
-    border: 5px solid green;
+    border: 2px solid black;
     background-color: white;
     margin: 1.5em 0;
 }

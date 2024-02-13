@@ -84,9 +84,9 @@ form>textarea {
     padding: 0.5em;
 }
 
-#answer-feedback {
+#answer-feedback,
+#second-playthrough-text {
     display: flex;
-
 }
 
 /* Footer styles */

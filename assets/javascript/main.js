@@ -142,9 +142,12 @@ function setQuestionText(questionNumber) {
 
 function answerValidation(event) {
     event.preventDefault();
-    let userAnswer = userAnswerForm.elements['userAnswer'].value;
+    let userAnswer = userAnswerForm.elements['userAnswer'].value.trim();
+    console.log(userAnswer);
+    console.log(userAnswer.trim())
     /* check that the entry is not blank */
     if (userAnswer) {
+        console.log(userAnswer, questions[0].Answer.toLowerCase())
         userAnswers.push(userAnswer);
         setFeedbackArea();
     } else {

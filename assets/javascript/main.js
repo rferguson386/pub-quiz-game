@@ -20,7 +20,7 @@ const questions = [{
         Answer: 'Iago'
     },
     {
-        Question: 'When was the movie Titanic released?',
+        Question: 'In what year was the movie Titanic released? (enter the year only in the YYYY format)',
         Answer: '1997'
     },
     {
@@ -36,8 +36,8 @@ const questions = [{
         Answer: 'Olivia'
     },
     {
-        Question: 'What is the name of the 1976 film about the Watergate scandal, starring Robert Redford and Dustin Hoffman?',
-        Answer: "All the President's Men"
+        Question: 'In what US state is the city Nashville?',
+        Answer: 'Tennessee'
     },
     {
         Question: 'Which comedian was the second permanent host of Never Mind the Buzzcocks after Mark Lamarr?',

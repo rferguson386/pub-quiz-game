@@ -79,6 +79,58 @@ The footer simply features information about the website author, and a link to m
 
 ## Testing 
 
+## Compatibility
+
+In order to confirm the correct functionality and appearance of the site, it was tested on the following browsers: Chrome, Firefox and Safari. The images below for each browser show the website is displaying correctly and all features described in the readme are present.
+
++ Chrome:
+
+    - Intro:
+
+    ![Intro](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/chrome/introduction.png)
+
+    - Quiz Feedback:
+
+    ![Quiz Feedback](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/chrome/quiz-feedback.png)
+
+    - Final score:
+
+    ![Final score](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/chrome/final-score.png)
+
+
++ Firefox:
+
+    - Intro:
+
+    ![Intro](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/firefox/introduction.png)
+
+    - Quiz Feedback:
+
+    ![Quiz Feedback](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/firefox/quiz-feedback.png)
+
+    - Final score:
+
+    ![Final score](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/firefox/final-score.png)
+
+During testing for Firefox, I noticed that the submit input was displaying different text than on safari and chrome, because I had not set the value attribute, so I added this to the code to standardise the input across browsers. The screesnots before and after the fix are below:
+
+![Before](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/firefox/before.png)
+
+![After](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/firefox/after.png)
+
++ Safari:
+
+     - Intro:
+
+    ![Intro](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/safari/introduction.png)
+
+    - Quiz Feedback:
+
+    ![Quiz Feedback](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/safari/quiz-feedback.png)
+
+    - Final score:
+
+    ![Final score](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/safari/final-score.png)
 
 
 ### Validator Testing 

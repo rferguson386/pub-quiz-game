@@ -8,7 +8,7 @@ Users will be asked 10 general knowledge questions, similar in difficulty level 
 
 It is intended for anyone who likes playing pub quizzes and wants to test themselves against an online version of this experience.
 
-![Responsice Mockup](https://github.com/lucyrush/readme-template/blob/master/media/love_running_mockup.png)
+![Responsive Mockup](images/readme/responsive-mockup.png)
 
 ## Features 
 

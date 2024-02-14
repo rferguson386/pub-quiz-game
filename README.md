@@ -23,7 +23,7 @@ The introduction greets the user and sets out what they can expect for the quiz,
 
 - __Username selector__
 
-The username selector allows users to choose a username, which is then referred to throughout the quiz, as they receive feedback on each answer, and in the final score feedback.
+The username selector allows users to choose a username, which is then referred to throughout the quiz, as they receive feedback on each answer, and in the final score feedback. There is a validation function in the quiz code checking the user has not entered a blank username, or one that contains numeric characters. If the validation fails, the user is prompted to re-enter their name via an alert message.
  
 ![Username selector](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/username-selector.png)
 
@@ -35,7 +35,9 @@ The username selector allows users to choose a username, which is then referred 
 
 - __Answer input__
 
- The answer input allows users to provide an answer, which is then checked against the answer property in an array of objects relating to the quiz questions, to determine if the user was correct in their answer, or not.
+ The answer input allows users to provide an answer, which is then checked against the answer property in an array of objects relating to the quiz questions, to determine if the user was correct in their answer, or not. There is a validation function checking the answer the user inputs to make sure that it is not a blank text string, or does not contain a series of blank characters in the string before they type their name.
+
+ If the validation fails, the user is prompted to re-enter their answer via an alert message.
 
 ![Answer input](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/answer-input.png)
 
@@ -112,10 +114,12 @@ In order to confirm the correct functionality and appearance of the site, it was
 
     ![Final score](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/firefox/final-score.png)
 
-During testing for Firefox, I noticed that the submit input was displaying different text than on safari and chrome, because I had not set the value attribute, so I added this to the code to standardise the input across browsers. The screesnots before and after the fix are below:
+During testing for Firefox, I noticed that the submit input was displaying different text than on safari and chrome, because I had not set the value attribute, so I added this to the code to standardise the input across browsers. The screeshots before and after the fix are below:
 
+- Before:
 ![Before](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/firefox/before.png)
 
+- After:
 ![After](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/firefox/after.png)
 
 + Safari:
@@ -132,6 +136,15 @@ During testing for Firefox, I noticed that the submit input was displaying diffe
 
     ![Final score](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/safari/final-score.png)
 
+
+## Responsiveness
+
+
++ The website was checked for responsiveness via the Responsive viewer chrome extension.
+
+    - All devices:
+
+    ![All devices](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/all-devices.png)
 
 ### Validator Testing 
 

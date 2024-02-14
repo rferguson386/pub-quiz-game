@@ -163,7 +163,7 @@ During testing for Firefox, I noticed that the submit input was displaying diffe
 
 ### Unfixed Bugs
 
-There is a bug relating to a password manager (Lastpass) extension in Chrome which causes the error screenshotted below to show up. This error does not show on an incognito browser in chrome.
+There is a bug relating to a password manager (Lastpass) extension in Chrome which causes the error screenshotted below to show up. This error does not show on an incognito browser in Chrome. It does not affect the function or display of the site in any of my testing, even when the browser extension is present.
 
 ![Error](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/browser-extension-error.png)
 

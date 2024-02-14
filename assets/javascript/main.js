@@ -116,7 +116,7 @@ function setQuestionArea() {
     currentQuestionCounter++;
     /* Set the value of the message telling the user what question they are on */
     let currentQuestionNumberDisplay = document.getElementById('question-number');
-    currentQuestionNumberDisplay.innerHTML = `<h2>Question number ${currentQuestionCounter}</h2>`;
+    currentQuestionNumberDisplay.innerHTML = `<h3>Question number ${currentQuestionCounter}</h3>`;
     /* check if the user should see the greeting message or not */
     if (currentQuestionCounter === 1) {
         greetings();

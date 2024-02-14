@@ -12,57 +12,70 @@ It is intended for anyone who likes playing pub quizzes and wants to test themse
 
 ## Features 
 
-
-
 ### Existing Features
 
 - __Introduction__
 
-The introduction greets the user, and sets out the rules of the quiz.
+The introduction greets the user and sets out what they can expect for the quiz, as well as telling them how to start the quiz if they decide to play.
  
 
-![Nav Bar](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/introduction.png)
+![Introduction](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/introduction.png)
 
-- __The landing page image__
+- __Username selector__
 
+The username selector allows users to choose a username, which is then referred to throughout the quiz, as they receive feedback on each answer, and in the final score feedback.
  
-![Landing Page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+![Username selector](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/username-selector.png)
 
-- __Club Ethos Section__
+- __Question number indicator__
 
- 
+ The question number indicator shows the user which question number they are on at the time they are asked a question, and when they receive feedback on their answer.
 
-![Club Ethos](https://github.com/lucyrush/readme-template/blob/master/media/love_running_ethos.png)
+![Question number indicator](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/question-number-indicator.png)
 
-- __Meetup Times section__
+- __Answer input__
 
- 
+ The answer input allows users to provide an answer, which is then checked against the answer property in an array of objects relating to the quiz questions, to determine if the user was correct in their answer, or not.
 
-![Meetup Times](https://github.com/lucyrush/readme-template/blob/master/media/love_running_times.png)
+![Answer input](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/answer-input.png)
 
-- __The Footer__ 
+- __Running score indicator__ 
 
-  
+  The running score indicator shows the user how many questions they have got right, and wrong, as they progress through the quiz.
 
-![Footer](https://github.com/lucyrush/readme-template/blob/master/media/love_running_footer.png)
+![Running score indicator](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/running-score-indicator.png)
 
-- __Gallery__
+- __Question answer feedback__
 
- 
+ The question-answer feedback tells the user whether their answer was correct or not, and if it was not, what the correct answer was. The "next question" button allows users to click on it to progress in the game when they are ready
 
-![Gallery](https://github.com/lucyrush/readme-template/blob/master/media/love_running_gallery.png)
+![Question answer feedback](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/question-answer-feedback.png)
 
-- __The Sign Up Page__
+- __Final score feedback__
 
- 
+ The final score feedback tells the user how many questions they got correct, and how many they answered incorrectly. They are also offered the chance to play the quiz again, by clicking on the "play again" button.
 
-![Sign Up](https://github.com/lucyrush/readme-template/blob/master/media/love_running_signup.png)
+![Final score feedback](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/final-score-feedback.png)
+
+
+- __Username choice for second playthrough__
+
+If the user chooses to play again when they receive their final score feedback, they are presented with the option to either continue with their previous username or to enter a new one. Either option starts the quiz again from question one, and their choice of username is referenced as they progress through the quiz.
+
+![Username choice](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/username-choice.png)
+
+- __Footer__
+
+The footer simply features information about the website author, and a link to my LinkedIn profile.
+
+![Footer](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/introduction.png)
 
 
 
 ### Features Left to Implement
 
-- Another feature idea
+- Time limit to give answers in
+- Creating a bank of 100 questions, of which 10 are randomly selected to be the quiz questions at the point the quiz begins.
 
 ## Testing 
 

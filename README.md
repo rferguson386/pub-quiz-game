@@ -149,51 +149,60 @@ During testing for Firefox, I noticed that the submit input was displaying diffe
 ### Validator Testing 
 
 - HTML
-  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-institute-org.github.io%2Flove-running-2.0%2Findex.html)
+  - No errors were returned when passing through the official [W3C validator](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/html-validator.png)
 - CSS
-  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-running-2.0%252Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#css)
+  - No errors were found when passing through the official [(Jigsaw) validator](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/css-validator.png)
+- Javascript
+  - 38 warnings and no errors were found by the JSHint validator. All of the warnings related to the availability of template literal syntax, let and const variable types in different browsers, apart from the choice of using bracket notation to access an element's id attribute value. [(JSHint) validator](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/javascript-validator.png)
+
++ ## LightHouse report
+
+    - Using lighthouse in devtools I confirmed that the website is performing well, accessible and colors and fonts chosen are readable.
+
+  ![Lighthouse report](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/lighthouse-report.png)
 
 ### Unfixed Bugs
 
+There is a bug relating to a password manager (Lastpass) extension in Chrome which causes the error screenshotted below to show up. This error does not show on an incognito browser in chrome.
+
+[Error](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/browser-extension-error.png)
 
 ## Deployment
 
+### Deployment to Github pages:
 
+The site was deployed to GitHub pages. The steps to deploy are as follows:
+In the GitHub repository, navigate to the Settings tab
+Select Pages in the side navigation bar
+From the source section drop-down "Franch, select the Main Branch
+Once the Main branch has been selected, hit "Save" and the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
 
-- The site was deployed to GitHub pages. The steps to deploy are as follows: 
-  - In the GitHub repository, navigate to the Settings tab 
-  - From the source section drop-down menu, select the Master Branch
-  - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
+The live link can be found here - https://rferguson386.github.io/pub-quiz-game/
 
-The live link can be found here - https://code-institute-org.github.io/love-running-2.0/index.html 
+### Local Deployment
+To make a local copy, use the following command in your terminal:
+git clone https://github.com/rferguson386/pub-quiz-game.git  
 
 
 ## Credits 
 
-- I referred to this StackOverflow thread when trying to determine where to place the link to the Javascript file to allow my website to load as quickly as possible: https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup. Because of this thread, I chose to use the asynchronus loading attribute my srcipt elements.
+- My mentor Julia Konovalova was very helpful in guiding me through the planning process of the quiz. We workshopped a user journey which I used as the basis for deciding what functions needed to be called and when. Based on her advice, I recreated our conversation into a miro board to help me understand the flow of what needs to happen and when. The actual functions didn't turn out exactly like the flow in the Miro board when I finished the code, but it was close.
+
+A link to view the miro board is included below:
+
+[Miro board](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/Pub-quiz-website-miro-v1.pdf)
+
+I used a function from a stack overflow post to incorporate a check on numeric characters in strings into my username validation function. The borrowed code is commented in the JS file, and the source is available here https://stackoverflow.com/questions/5778020/check-whether-an-input-string-contains-a-number-in-javascript
+
+I copied some code from the love running walkthrough videos to override browser default styles, this code is identified with a comment in the style.css file.
 
 ### Content 
 
 - The questions and answers for the quiz were taken from this website https://www.radiotimes.com/quizzes/pub-quiz-general-knowledge/
-- The incons used in the h2 at the top of the page and in the footer were taken from Font Awesome https://fontawesome.com/ 
+- The icons used in the h2 at the top of the page and in the footer were taken from Font Awesome https://fontawesome.com/ 
+
 
 ### Media
 
-There is no media included in this site
+There are no media included in this site apart form the font awesome icons.
 
-## Other General Project Advice
-
-Below you will find a couple of extra tips that may be helpful when completing your project. Remember that each of these projects will become part of your final portfolio so it’s important to allow enough time to showcase your best work! 
-
-- One of the most basic elements of keeping a healthy commit history is with the commit message. When getting started with your project, read through [this article](https://chris.beams.io/posts/git-commit/) by Chris Beams on How to Write  a Git Commit Message 
-  - Make sure to keep the messages in the imperative mood 
-
-- When naming the files in your project directory, make sure to consider meaningful naming of files, point to specific names and sections of content.
-  - For example, instead of naming an image used ‘image1.png’ consider naming it ‘landing_page_img.png’. This will ensure that there are clear file paths kept. 
-
-- Do some extra research on good and bad coding practices, there are a handful of useful articles to read, consider reviewing the following list when getting started:
-  - [Writing Your Best Code](https://learn.shayhowe.com/html-css/writing-your-best-code/)
-  - [HTML & CSS Coding Best Practices](https://medium.com/@inceptiondj.info/html-css-coding-best-practice-fadb9870a00f)
-  - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#General)
-
-Getting started with your Portfolio Projects can be daunting, planning your project can make it a lot easier to tackle, take small steps to reach the final outcome and enjoy the process! 

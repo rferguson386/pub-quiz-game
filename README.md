@@ -149,11 +149,11 @@ During testing for Firefox, I noticed that the submit input was displaying diffe
 ### Validator Testing 
 
 - HTML
-  - No errors were returned when passing through the official [W3C validator](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/html-validator.png)
+  - No errors were returned when passing through the official ![W3C validator](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/html-validator.png)
 - CSS
-  - No errors were found when passing through the official [(Jigsaw) validator](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/css-validator.png)
+  - No errors were found when passing through the official ![(Jigsaw) validator](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/css-validator.png)
 - Javascript
-  - 38 warnings and no errors were found by the JSHint validator. All of the warnings related to the availability of template literal syntax, let and const variable types in different browsers, apart from the choice of using bracket notation to access an element's id attribute value. [(JSHint) validator](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/javascript-validator.png)
+  - 38 warnings and no errors were found by the JSHint validator. All of the warnings related to the availability of template literal syntax, let and const variable types in different browsers, apart from the choice of using bracket notation to access an element's id attribute value. ![(JSHint) validator](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/javascript-validator.png)
 
 + ## LightHouse report
 
@@ -165,7 +165,7 @@ During testing for Firefox, I noticed that the submit input was displaying diffe
 
 There is a bug relating to a password manager (Lastpass) extension in Chrome which causes the error screenshotted below to show up. This error does not show on an incognito browser in chrome.
 
-[Error](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/browser-extension-error.png)
+![Error](https://github.com/rferguson386/pub-quiz-game/blob/main/assets/images/readme/browser-extension-error.png)
 
 ## Deployment
 
